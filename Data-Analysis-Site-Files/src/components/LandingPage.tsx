@@ -20,7 +20,7 @@ export default function LandingPage({ lessons, onStart, onOpenLesson }: LandingP
           <p className="landing-description">Explore a practical introduction to Python and Pandas. Learn to read, clean and analyse data, then explain what the evidence can—and cannot—tell you.</p>
           <div className="landing-actions">
             <button className="landing-primary" onClick={onStart}>Start learning <span aria-hidden="true">→</span></button>
-            <a className="landing-download" href={downloadHref} download>Download unit ZIP <span aria-hidden="true">↓</span></a>
+            <a className="landing-download" href={downloadHref} download>Download Python and CSV files <span aria-hidden="true">↓</span></a>
           </div>
           <div className="landing-meta"><span>18 guided lessons</span><i /><span>Python + Pandas</span><i /><span>Learn at your own pace</span></div>
         </div>
@@ -46,7 +46,7 @@ export default function LandingPage({ lessons, onStart, onOpenLesson }: LandingP
             </button>
           ))}
         </div>
-        <div className="lesson-download-row"><p>Want to work offline? Download all 18 lessons with their student starters and datasets.</p><a href={downloadHref} download>Download the unit ZIP <span aria-hidden="true">↓</span></a></div>
+        <div className="lesson-download-row"><p>Download the Python starter programs and CSV data files for all 18 lessons.</p><a href={downloadHref} download>Download Python and CSV files <span aria-hidden="true">↓</span></a></div>
       </section>
     </>
   )
