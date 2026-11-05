@@ -1,0 +1,3 @@
+﻿.lesson-06 { --lesson-accent: #58764f; }
+.lesson-06 .markdown-document > h2::before { background: var(--lesson-accent); }
+

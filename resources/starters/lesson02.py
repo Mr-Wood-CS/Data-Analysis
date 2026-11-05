@@ -1,0 +1,18 @@
+from pathlib import Path
+import pandas as pd
+
+# Resolve paths from this file, so the script works from any working directory.
+RESOURCES = Path(__file__).resolve().parents[1]
+OUT = RESOURCES / "generated"
+OUT.mkdir(exist_ok=True)
+df = pd.read_csv(RESOURCES / "datasets" / "gaming.csv")
+
+print(df[["player_id", "score"]].head())
+print("Minimum", df["score"].min())
+print("Maximum", df["score"].max())
+print("Mean", df["score"].mean())
+
+# YOUR TASKS: add your analysis below. The preview above is deliberately runnable.
+# 1. Display player_id and minutes only.
+# 2. Calculate minimum, maximum and mean score. Label the results as points.
+# 3. Calculate mean minutes and write a sentence explaining what the average describes. Explain why a typical player might differ from the mean.

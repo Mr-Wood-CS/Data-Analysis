@@ -1,0 +1,18 @@
+.markdown-document { color: var(--muted); font-size: 14px; line-height: 1.85; }
+.markdown-document > h1 { margin: 0 0 20px; color: var(--ink); font-size: clamp(27px, 4vw, 36px); font-weight: 500; line-height: 1.2; letter-spacing: -1px; }
+.markdown-document > h2 { position: relative; margin: 31px 0 12px; padding-left: 13px; color: var(--ink); font-size: 17px; font-weight: 600; line-height: 1.35; }
+.markdown-document > h2::before { position: absolute; top: .2em; bottom: .2em; left: 0; width: 2px; content: ''; background: #78946c; }
+.markdown-document > h3 { margin: 24px 0 8px; color: var(--ink); font-size: 14px; font-weight: 600; }
+.markdown-document > p { margin: 11px 0; }
+.markdown-document > p:first-of-type { color: #536156; }
+.markdown-document strong { color: #37483a; font-weight: 600; }
+.markdown-document a { text-underline-offset: 3px; }.markdown-document a:hover { color: #284e38; }
+.markdown-document code { padding: 2px 5px; border: 1px solid #e6eae4; border-radius: 3px; background: #f5f7f3; color: #35493a; font-family: Consolas, 'SFMono-Regular', monospace; font-size: .9em; }
+.markdown-document .md-code { position: relative; margin: 16px 0 22px; padding: 17px 19px; overflow-x: auto; border: 1px solid var(--border); border-radius: 3px; background: #f7f8f6; color: #34433a; font-family: Consolas, 'SFMono-Regular', monospace; font-size: 12px; line-height: 1.8; white-space: pre; }
+.markdown-document .md-code code { padding: 0; border: 0; background: transparent; color: inherit; font: inherit; }.code-language { display: block; margin-bottom: 8px; color: #798578; font-family: inherit; font-size: 8px; letter-spacing: 1px; text-transform: uppercase; }
+.markdown-document ol, .markdown-document ul { margin: 12px 0 18px; padding-left: 23px; }.markdown-document li { margin: 7px 0; padding-left: 3px; }.markdown-document li::marker { color: #78946c; }
+.markdown-document blockquote { margin: 17px 0; padding: 4px 0 4px 17px; border-left: 2px solid #bccbbf; color: #596b5c; }
+.table-scroll { width: 100%; margin: 16px 0 22px; overflow-x: auto; border: 1px solid var(--border); border-radius: 3px; }
+.markdown-document table { width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.65; text-align: left; }
+.markdown-document th { background: #f3f5f0; color: #37483a; font-weight: 600; }.markdown-document th, .markdown-document td { min-width: 110px; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }.markdown-document tr:last-child td { border-bottom: 0; }.markdown-document td:first-child { color: #405744; font-weight: 500; }
+@media(max-width: 560px) { .markdown-document { font-size: 13px; }.markdown-document th, .markdown-document td { padding: 8px 10px; } }
