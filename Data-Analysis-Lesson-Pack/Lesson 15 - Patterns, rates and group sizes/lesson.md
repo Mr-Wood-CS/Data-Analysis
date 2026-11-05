@@ -1,0 +1,74 @@
+﻿# Lesson 15: Patterns, rates and group sizes
+
+**Time:** 45 minutes · **Skills:** groupby, crosstab and denominators
+
+## Learning intention
+
+Compare proportions as well as counts.
+
+**Success criteria:** I can report flagged count, total and percentage for each group.
+
+## Get ready
+
+[Starter Python](resources/starters/lesson15.py) · [CSV](resources/datasets/outbreak.csv) · [Data dictionary](reference/data-dictionary.md)
+
+Open the starter in your extracted pack. Save your own copy in the same starters folder with your initials in the filename. Run it using your editor, or `python resources/starters/lesson15.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
+
+## Lesson route
+
+| Minutes | Activity | What to do |
+| --- | --- | --- |
+| 0–5 | Retrieve and predict | Why can a larger group have more flagged robots even with a lower rate? |
+| 5–13 | Model and explain | Make a Boolean is_flagged column. Its mean is the fraction of True values; multiplying by 100 gives a percentage. Count includes non-missing status-derived values here. Compare groups with different denominators. Then look within each area as an extension to the overall comparison. |
+| 13–23 | Guided practice | Trace the model code, predict one output, then run it. Discuss the hinge question before progressing. |
+| 23–38 | Apply independently | Complete the three core tasks. Save code and evidence; use support or stretch as appropriate. |
+| 38–43 | Explain and review | Compare one result with a partner and justify a method or limitation. |
+| 43–45 | Exit check | Explain why a denominator belongs next to a percentage. |
+
+## Key idea
+
+Make a Boolean is_flagged column. Its mean is the fraction of True values; multiplying by 100 gives a percentage. Count includes non-missing status-derived values here. Compare groups with different denominators. Then look within each area as an extension to the overall comparison.
+
+## Worked model
+
+The starter has already loaded `outbreak.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starters also import `plt`.
+
+```python
+df["is_flagged"] = df["status"] == "flagged"
+summary = df.groupby("visited_arcade")["is_flagged"].agg(["sum", "count", "mean"])
+summary["percent"] = summary["mean"] * 100
+print(summary)
+print(pd.crosstab(df["area"], df["status"]))
+summary.to_csv(OUT / "lesson15_rates.csv")
+```
+
+Before running: predict one output. After running: explain one line to your partner. Python field names and game labels must match exactly.
+
+## Your investigation
+
+1. Calculate flagged count and total for arcade yes and no, then calculate percentages.
+
+2. Compare flagged counts by area with percentages by area. Explain why the counts alone overstate the difference.
+
+3. Write one supported association and one statement the table cannot justify. Keep the denominators in your evidence.
+
+## Support
+
+Start with fraction strips showing 26/50 and 7/30. Supply sum/count/percent table headings.
+
+## Stretch
+
+Use groupby(["area", "visited_arcade"]) to compare within areas. Discuss confounding, selection and what additional evidence would help.
+
+## Stop and check
+
+Is 24 out of 40 the same rate as 6 out of 20?
+
+## Save your evidence
+
+Save your edited script and a short Markdown note containing your question, one result with units or denominator, an explanation of a key line, and any help used. For charts, include the PNG and a text description. Keep numerical results in your note rather than relying only on a screenshot.
+
+## Exit ticket
+
+Explain why a denominator belongs next to a percentage.
+

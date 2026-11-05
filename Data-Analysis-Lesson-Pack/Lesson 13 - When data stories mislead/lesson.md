@@ -1,0 +1,82 @@
+﻿# Lesson 13: When data stories mislead
+
+**Time:** 45 minutes · **Skills:** Mean, median, outliers and axes
+
+## Learning intention
+
+Evaluate how presentation choices change an interpretation.
+
+**Success criteria:** I can compare mean and median, explain an outlier’s effect and critique a truncated bar axis.
+
+## Get ready
+
+[Starter Python](resources/starters/lesson13.py) · [CSV](resources/datasets/sports.csv) · [Data dictionary](reference/data-dictionary.md)
+
+Open the starter in your extracted pack. Save your own copy in the same starters folder with your initials in the filename. Run it using your editor, or `python resources/starters/lesson13.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
+
+## Lesson route
+
+| Minutes | Activity | What to do |
+| --- | --- | --- |
+| 0–5 | Retrieve and predict | Why should a comparison include group sizes? |
+| 5–13 | Model and explain | Outliers can be genuine, errors or unusual observations: inspect context before removing them. Compare [10,11,12,13,100]: the mean and median answer different questions. Show identical regional means on two charts with different axis limits; inspect labels, not just apparent bar differences. |
+| 13–23 | Guided practice | Trace the model code, predict one output, then run it. Discuss the hinge question before progressing. |
+| 23–38 | Apply independently | Complete the three core tasks. Save code and evidence; use support or stretch as appropriate. |
+| 38–43 | Explain and review | Compare one result with a partner and justify a method or limitation. |
+| 43–45 | Exit check | Give one way to check a dramatic graph before accepting its claim. |
+
+## Key idea
+
+Outliers can be genuine, errors or unusual observations: inspect context before removing them. Compare [10,11,12,13,100]: the mean and median answer different questions. Show identical regional means on two charts with different axis limits; inspect labels, not just apparent bar differences.
+
+## Worked model
+
+The starter has already loaded `sports.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starters also import `plt`.
+
+```python
+example = pd.Series([10, 11, 12, 13, 100])
+print("Mean", example.mean(), "Median", example.median())
+means = df.groupby("region")["points"].mean()
+fig, axes = plt.subplots(1, 2, figsize=(9, 4))
+for ax in axes:
+    means.plot.bar(ax=ax, rot=0)
+    ax.set(xlabel="Region", ylabel="Mean points")
+axes[0].set(title="Zero baseline", ylim=(0, 18))
+axes[1].set(title="Truncated baseline", ylim=(12, 16))
+fig.suptitle("Same fictional team data, different axes")
+fig.tight_layout()
+fig.savefig(OUT / "lesson13_axes.png")
+plt.close(fig)
+print(means)
+```
+
+Before running: predict one output. After running: explain one line to your partner. Python field names and game labels must match exactly.
+
+## Your investigation
+
+1. Calculate the mean and median of the five-number example. Decide which better describes the middle observation.
+
+2. Compare both charts and state what stays the same and what looks different.
+
+3. Write a responsible caption for the regional means. Explain why deleting 100 without investigating would be poor practice.
+
+## Support
+
+Provide ordered number cards and a labelled chart critique checklist: question, source, axis, unit, sample, conclusion.
+
+## Stretch
+
+Replace 100 with 14 on a copy and recalculate. Explain sensitivity without treating the altered list as the original evidence.
+
+## Stop and check
+
+If the mean rises, must every value have risen?
+
+## Save your evidence
+
+Save your edited script and a short Markdown note containing your question, one result with units or denominator, an explanation of a key line, and any help used. For charts, include the PNG and a text description. Keep numerical results in your note rather than relying only on a screenshot.
+
+## Exit ticket
+
+Give one way to check a dramatic graph before accepting its claim.
+

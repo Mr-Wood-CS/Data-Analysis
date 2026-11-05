@@ -1,0 +1,78 @@
+﻿# Lesson 8: Cleaning with an audit trail
+
+**Time:** 45 minutes · **Skills:** String normalisation, conversion, missing values and export
+
+## Learning intention
+
+Apply and justify a repeatable cleaning policy.
+
+**Success criteria:** I can preserve raw data, explain each cleaning decision and export a cleaned table.
+
+## Get ready
+
+[Starter Python](resources/starters/lesson08.py) · [CSV](resources/datasets/gaming_dirty.csv) · [Data dictionary](reference/data-dictionary.md)
+
+Open the starter in your extracted pack. Save your own copy in the same starters folder with your initials in the filename. Run it using your editor, or `python resources/starters/lesson08.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
+
+## Lesson route
+
+| Minutes | Activity | What to do |
+| --- | --- | --- |
+| 0–5 | Retrieve and predict | Which audit problems would a simple dropna miss? |
+| 5–13 | Model and explain | Our teaching policy removes exact duplicate rows, trims/title-cases game labels, converts numeric fields, marks negative durations missing, and keeps incomplete records. Unknown scores remain unknown. A median fill is a possible sensitivity check, not a recovered truth. Re-running starts from the raw CSV. |
+| 13–23 | Guided practice | Trace the model code, predict one output, then run it. Discuss the hinge question before progressing. |
+| 23–38 | Apply independently | Complete the three core tasks. Save code and evidence; use support or stretch as appropriate. |
+| 38–43 | Explain and review | Compare one result with a partner and justify a method or limitation. |
+| 43–45 | Exit check | Justify one policy and identify a possible bias it introduces. |
+
+## Key idea
+
+Our teaching policy removes exact duplicate rows, trims/title-cases game labels, converts numeric fields, marks negative durations missing, and keeps incomplete records. Unknown scores remain unknown. A median fill is a possible sensitivity check, not a recovered truth. Re-running starts from the raw CSV.
+
+## Worked model
+
+The starter has already loaded `gaming_dirty.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starters also import `plt`.
+
+```python
+clean = df.drop_duplicates().copy()
+clean["game"] = clean["game"].str.strip().str.title()
+for field in ["score", "minutes", "sessions", "practice_minutes"]:
+    clean[field] = pd.to_numeric(clean[field], errors="coerce")
+clean.loc[clean["minutes"] < 0, "minutes"] = float("nan")
+clean.to_csv(OUT / "gaming_cleaned.csv", index=False)
+print(clean.isna().sum())
+print("Rows", len(clean))
+print("Known-score mean", clean["score"].mean())
+print("Mean after median fill", clean["score"].fillna(clean["score"].median()).mean())
+```
+
+Before running: predict one output. After running: explain one line to your partner. Python field names and game labels must match exactly.
+
+## Your investigation
+
+1. Implement the stated policy and save a cleaning log with before/after counts.
+
+2. Compare the mean using known scores with the mean after median filling. Explain why neither restores the missing observations.
+
+3. Try dropna(subset=["score"]) on a copy. Report how many rows remain and which questions that copy could still answer.
+
+## Support
+
+Supply the conversion loop and explain one field at a time. Let pupils use a before/after table instead of extended writing.
+
+## Stretch
+
+Check that identifiers remain unique, valid scores are unchanged and cleaning twice gives the same result.
+
+## Stop and check
+
+Does filling an unknown score with zero mean the same as leaving it missing?
+
+## Save your evidence
+
+Save your edited script and a short Markdown note containing your question, one result with units or denominator, an explanation of a key line, and any help used. For charts, include the PNG and a text description. Keep numerical results in your note rather than relying only on a screenshot.
+
+## Exit ticket
+
+Justify one policy and identify a possible bias it introduces.
+

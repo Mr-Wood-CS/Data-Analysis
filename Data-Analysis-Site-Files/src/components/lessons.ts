@@ -38,3 +38,5 @@ export const lessons = [
   { title: 'Lesson 18: Present, review and reflect', summary: 'Fresh-run checks, peer review and evaluation', Component: Lesson18 },
 ]
 
+export type LessonSummary = typeof lessons[number]
+

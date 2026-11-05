@@ -1,0 +1,70 @@
+﻿# Lesson 17: Final independent investigation
+
+**Time:** 45 minutes · **Skills:** Plan, analyse, verify and communicate
+
+## Learning intention
+
+Produce a reproducible answer to an independently selected question.
+
+**Success criteria:** I can submit code, checked evidence, a chart and a cautious conclusion with acknowledged support.
+
+## Get ready
+
+[Starter Python](resources/starters/lesson17.py) · [CSV](resources/datasets/outbreak.csv) · [Data dictionary](reference/data-dictionary.md)
+
+Open the starter in your extracted pack. Save your own copy in the same starters folder with your initials in the filename. Run it using your editor, or `python resources/starters/lesson17.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
+
+## Lesson route
+
+| Minutes | Activity | What to do |
+| --- | --- | --- |
+| 0–5 | Retrieve and scope | What distinguishes a claim, evidence and limitation? |
+| 5–10 | Brief and plan | Read the assessment brief; agree the question and permitted support. |
+| 10–30 | Independent analysis | Create code, calculations, a comparison and a chart. |
+| 30–38 | Check and interpret | Manually check one result and write a cautious conclusion. |
+| 38–43 | Assemble evidence | Save report, script, table and chart; log support. |
+| 43–45 | Exit check | Show one checked result and identify the next action needed for submission. |
+
+## Key idea
+
+Read the assessment brief and agree scope. Pupils can choose the robot dataset or sports.csv; one focused question is sufficient. Explain permitted help and evidence requirements before work starts. Use teacher questions to check understanding without dictating a method.
+
+## Worked model
+
+The starter has already loaded `outbreak.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starters also import `plt`.
+
+```python
+print(df.head(3))
+print("Choose a question; replace this preview with your analysis.")
+```
+
+Before running: predict one output. After running: explain one line to your partner. Python field names and game labels must match exactly.
+
+## Your investigation
+
+1. Use the final brief and planner to define a question and identify required fields.
+
+2. Adapt your starter to create two relevant calculations, one filter or comparison, and a labelled chart. Check a result manually.
+
+3. Draft the report using the template. Explain a limitation and record any help. Keep files ready for a fresh run next lesson.
+
+## Support
+
+Offer a choice of two question stems and a reduced writing template. Record which scaffold was used; assess explanation as well as typing.
+
+## Stretch
+
+Compare a relevant alternative method or subgroup and explain whether it changes the claim. More code is not automatically stronger evidence.
+
+## Stop and check
+
+Can another person rerun your work from the raw CSV and obtain the same evidence?
+
+## Save your evidence
+
+Save your edited script and a short Markdown note containing your question, one result with units or denominator, an explanation of a key line, and any help used. For charts, include the PNG and a text description. Keep numerical results in your note rather than relying only on a screenshot.
+
+## Exit ticket
+
+Show one checked result and identify the next action needed for submission.
+

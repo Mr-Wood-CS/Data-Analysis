@@ -1,0 +1,70 @@
+﻿# Lesson 12: The sports data challenge
+
+**Time:** 45 minutes · **Skills:** Transfer: derived fields, filtering, grouping and ranking
+
+## Learning intention
+
+Apply familiar operations in a new context with less guidance.
+
+**Success criteria:** I can answer a defined question using a derived field and explain my method.
+
+## Get ready
+
+[Starter Python](resources/starters/lesson12.py) · [CSV](resources/datasets/sports.csv) · [Data dictionary](reference/data-dictionary.md)
+
+Open the starter in your extracted pack. Save your own copy in the same starters folder with your initials in the filename. Run it using your editor, or `python resources/starters/lesson12.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
+
+## Lesson route
+
+| Minutes | Activity | What to do |
+| --- | --- | --- |
+| 0–5 | Retrieve and predict | Explain why one scatter point needs paired values. |
+| 5–13 | Model and explain | Each row is a fictional team summary over ten matches. points_per_match = points / played is a derived field. played is nonzero here; in another dataset check before division. Model the division only, then let pupils choose filters, summaries and a chart. |
+| 13–23 | Guided practice | Trace the model code, predict one output, then run it. Discuss the hinge question before progressing. |
+| 23–38 | Apply independently | Complete the three core tasks. Save code and evidence; use support or stretch as appropriate. |
+| 38–43 | Explain and review | Compare one result with a partner and justify a method or limitation. |
+| 43–45 | Exit check | Identify one method you reused without a new worked example. |
+
+## Key idea
+
+Each row is a fictional team summary over ten matches. points_per_match = points / played is a derived field. played is nonzero here; in another dataset check before division. Model the division only, then let pupils choose filters, summaries and a chart.
+
+## Worked model
+
+The starter has already loaded `sports.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starters also import `plt`.
+
+```python
+df["points_per_match"] = df["points"] / df["played"]
+print(df[["team_id", "points_per_match"]].head())
+```
+
+Before running: predict one output. After running: explain one line to your partner. Python field names and game labels must match exactly.
+
+## Your investigation
+
+1. Find the top three teams by points per match with a documented tie rule.
+
+2. Compare mean points per match by region and show group sizes.
+
+3. Select teams with points_per_match >= 2 and training_hours <= 5. Produce one labelled chart and a two-sentence conclusion with a limitation.
+
+## Support
+
+Provide a method checklist: derive → rank → group → filter → chart. Release one hint only after the pupil explains their current attempt.
+
+## Stretch
+
+Would ranking by points or points per match change here? Explain why equal match counts matter; then consider unequal match counts.
+
+## Stop and check
+
+Would totals be a fair comparison if one team played twice as many matches?
+
+## Save your evidence
+
+Save your edited script and a short Markdown note containing your question, one result with units or denominator, an explanation of a key line, and any help used. For charts, include the PNG and a text description. Keep numerical results in your note rather than relying only on a screenshot.
+
+## Exit ticket
+
+Identify one method you reused without a new worked example.
+

@@ -1,0 +1,71 @@
+﻿# Lesson 6: Sorting and ranking fairly
+
+**Time:** 45 minutes · **Skills:** sort_values, head and algorithm comparison
+
+## Learning intention
+
+Create a reproducible ranking and compare ways to select a maximum.
+
+**Success criteria:** I can sort descending, identify a top five, and explain a tie rule.
+
+## Get ready
+
+[Starter Python](resources/starters/lesson06.py) · [CSV](resources/datasets/gaming.csv) · [Data dictionary](reference/data-dictionary.md)
+
+Open the starter in your extracted pack. Save your own copy in the same starters folder with your initials in the filename. Run it using your editor, or `python resources/starters/lesson06.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
+
+## Lesson route
+
+| Minutes | Activity | What to do |
+| --- | --- | --- |
+| 0–5 | Retrieve and predict | What does value_counts count? |
+| 5–13 | Model and explain | ascending=False places larger values first. Use a secondary sort on player_id to make ties deterministic. Compare scanning every score for the maximum with sorting all rows then reading the first. Both must handle ties; comparing efficiency needs reasoning about work, not one unreliable stopwatch reading. |
+| 13–23 | Guided practice | Trace the model code, predict one output, then run it. Discuss the hinge question before progressing. |
+| 23–38 | Apply independently | Complete the three core tasks. Save code and evidence; use support or stretch as appropriate. |
+| 38–43 | Explain and review | Compare one result with a partner and justify a method or limitation. |
+| 43–45 | Exit check | State the tie rule you would use and why it should be documented. |
+
+## Key idea
+
+ascending=False places larger values first. Use a secondary sort on player_id to make ties deterministic. Compare scanning every score for the maximum with sorting all rows then reading the first. Both must handle ties; comparing efficiency needs reasoning about work, not one unreliable stopwatch reading.
+
+## Worked model
+
+The starter has already loaded `gaming.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starters also import `plt`.
+
+```python
+ranked = df.sort_values(["score", "player_id"], ascending=[False, True])
+print(ranked[["player_id", "score"]].head(5))
+print("Maximum without ranking", df["score"].max())
+```
+
+Before running: predict one output. After running: explain one line to your partner. Python field names and game labels must match exactly.
+
+## Your investigation
+
+1. Produce the top five scores and retain identifiers.
+
+2. Rank by fewest minutes first. Explain why the largest score is not necessarily the best result for every question.
+
+3. On paper, count comparisons for finding a maximum in five scores by a single scan. Explain what a full ranking provides that a maximum alone does not.
+
+## Support
+
+Sort five paper records first, then annotate ascending=False. Supply a two-field code model.
+
+## Stretch
+
+Use [7, 9, 9, 2, 4] to compare a maximum scan with a simple bubble sort. Count score comparisons and test correctness, including ties. Do not claim this describes Pandas’ internal sort.
+
+## Stop and check
+
+Does head(5) find the five largest values before sorting?
+
+## Save your evidence
+
+Save your edited script and a short Markdown note containing your question, one result with units or denominator, an explanation of a key line, and any help used. For charts, include the PNG and a text description. Keep numerical results in your note rather than relying only on a screenshot.
+
+## Exit ticket
+
+State the tie rule you would use and why it should be documented.
+

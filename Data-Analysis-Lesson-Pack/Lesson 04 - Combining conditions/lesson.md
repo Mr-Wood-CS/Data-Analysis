@@ -1,0 +1,73 @@
+﻿# Lesson 4: Combining conditions
+
+**Time:** 45 minutes · **Skills:** Parentheses, & and |
+
+## Learning intention
+
+Combine two comparisons and test the intended logic.
+
+**Success criteria:** I can explain AND versus OR and use parentheses around each comparison.
+
+## Get ready
+
+[Starter Python](resources/starters/lesson04.py) · [CSV](resources/datasets/gaming.csv) · [Data dictionary](reference/data-dictionary.md)
+
+Open the starter in your extracted pack. Save your own copy in the same starters folder with your initials in the filename. Run it using your editor, or `python resources/starters/lesson04.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
+
+## Lesson route
+
+| Minutes | Activity | What to do |
+| --- | --- | --- |
+| 0–5 | Retrieve and predict | Write a comparison that includes a boundary value. |
+| 5–13 | Model and explain | Use a four-row truth table before coding. & requires both comparisons to be true; | needs at least one. Parenthesise each comparison. In these Pandas expressions use & and |, rather than Python and/or. |
+| 13–23 | Guided practice | Trace the model code, predict one output, then run it. Discuss the hinge question before progressing. |
+| 23–38 | Apply independently | Complete the three core tasks. Save code and evidence; use support or stretch as appropriate. |
+| 38–43 | Explain and review | Compare one result with a partner and justify a method or limitation. |
+| 43–45 | Exit check | Explain why removing parentheses can change or break a Pandas expression. |
+
+## Key idea
+
+Use a four-row truth table before coding. & requires both comparisons to be true; | needs at least one. Parenthesise each comparison. In these Pandas expressions use & and |, rather than Python and/or.
+
+## Worked model
+
+The starter has already loaded `gaming.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starters also import `plt`.
+
+```python
+both = df[(df["score"] >= 80) & (df["minutes"] <= 25)]
+either = df[(df["score"] >= 80) | (df["minutes"] <= 25)]
+print("AND", len(both))
+print(both)
+print("OR", len(either))
+```
+
+Before running: predict one output. After running: explain one line to your partner. Python field names and game labels must match exactly.
+
+## Your investigation
+
+1. Draw a four-case truth table for score >= 80 and minutes <= 25.
+
+2. Run both filters. Explain why every AND result must appear in the OR result.
+
+3. Find Sky Sprint records with score above 60, then change the condition to OR and explain the extra rows.
+
+## Support
+
+Colour each comparison separately and supply a complete bracket skeleton. Use two physical sorting hoops.
+
+## Stretch
+
+Write the same AND query as two consecutive filters and compare the selected player IDs.
+
+## Stop and check
+
+A record satisfies only one comparison. Does AND select it? Does OR?
+
+## Save your evidence
+
+Save your edited script and a short Markdown note containing your question, one result with units or denominator, an explanation of a key line, and any help used. For charts, include the PNG and a text description. Keep numerical results in your note rather than relying only on a screenshot.
+
+## Exit ticket
+
+Explain why removing parentheses can change or break a Pandas expression.
+

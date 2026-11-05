@@ -1,0 +1,70 @@
+﻿# Lesson 18: Present, review and reflect
+
+**Time:** 45 minutes · **Skills:** Fresh-run checks, peer review and evaluation
+
+## Learning intention
+
+Defend a conclusion using reproducible evidence and respond to critique.
+
+**Success criteria:** I can explain a key line of code, rerun the analysis and make one justified improvement.
+
+## Get ready
+
+[Starter Python](resources/starters/lesson18.py) · [CSV](resources/datasets/outbreak.csv) · [Data dictionary](reference/data-dictionary.md)
+
+Open the starter in your extracted pack. Save your own copy in the same starters folder with your initials in the filename. Run it using your editor, or `python resources/starters/lesson18.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
+
+## Lesson route
+
+| Minutes | Activity | What to do |
+| --- | --- | --- |
+| 0–5 | Reflect | Identify the weakest part of your draft claim. |
+| 5–13 | Fresh run | Rerun the final script and check evidence against the report. |
+| 13–25 | Paired review | Each pupil gives a two-minute explanation, answers questions and receives written feedback. |
+| 25–35 | Revise | Make and record one justified improvement. |
+| 35–43 | Submit and reflect | Submit the evidence and complete the reflection template. |
+| 43–45 | Exit check | Name one revision you made and the evidence or feedback that justified it. |
+
+## Key idea
+
+Use a paired gallery review so every pupil speaks within the lesson. Reviewers check that evidence answers the question, axes and units are clear, and causal language is warranted. A fresh run catches dependence on unsaved edits. Reflection should identify a specific improvement and next step.
+
+## Worked model
+
+The starter has already loaded `outbreak.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starters also import `plt`.
+
+```python
+print("Evidence check: raw dataset loaded", len(df), "records")
+print("Use the checklist to rerun your own lesson 17 investigation.")
+```
+
+Before running: predict one output. After running: explain one line to your partner. Python field names and game labels must match exactly.
+
+## Your investigation
+
+1. Rerun your investigation from the raw file and compare one output with your report.
+
+2. Give a two-minute paired explanation and answer one question about your code. Use the peer review sheet to give specific feedback.
+
+3. Make one justified revision, submit the final files and complete the reflection. State a skill to practise next.
+
+## Support
+
+Allow audio explanation, captions or a teacher conference. Supply: My evidence is __; this supports __; it cannot show __.
+
+## Stretch
+
+Explain which future data would most reduce uncertainty and why. Distinguish a code improvement from an evidence improvement.
+
+## Stop and check
+
+If a peer cannot reproduce the result, what must be checked before the conclusion is accepted?
+
+## Save your evidence
+
+Save your edited script and a short Markdown note containing your question, one result with units or denominator, an explanation of a key line, and any help used. For charts, include the PNG and a text description. Keep numerical results in your note rather than relying only on a screenshot.
+
+## Exit ticket
+
+Name one revision you made and the evidence or feedback that justified it.
+
