@@ -1,0 +1,32 @@
+.lesson-detail-page { max-width: 760px; min-height: 70vh; margin: 0 auto; }
+.lesson-detail-page .back-link { margin: 0 0 32px; padding: 0; border: 0; background: none; color: var(--green); font-size: 14px; }
+.lesson-heading { margin-bottom: 30px; }
+.lesson-heading .unit-level { margin: 0 0 8px; font-size: 14px; }
+.lesson-heading .page-position { margin: 0 0 20px; color: var(--muted); font-size: 12px; }
+.lesson-heading h1 { margin: 0; color: var(--ink); font-size: 30px; font-weight: 550; line-height: 1.25; letter-spacing: -.5px; outline: none; }
+.lesson-subpage { min-height: 250px; }
+.lesson-subpage .markdown-document { font-size: 16px; }
+.lesson-subpage .markdown-document > h1 { display: none; }
+.pupil-objectives { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; }
+.pupil-objectives h2 { margin: 0 0 12px; font-size: 14px; font-weight: 650; }
+.pupil-objectives p, .pupil-objectives li { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+.pupil-objectives .pupil-intention h2, .pupil-objectives .pupil-intention p { color: #a12d2d; }
+.pupil-objectives .pupil-success-criteria h2, .pupil-objectives .pupil-success-criteria p { color: #25613b; }
+.pupil-objectives p { margin: 0; }
+.code-explanations { margin: 0 0 28px; padding: 18px 20px; border: 1px solid var(--border); background: #f7f8f6; }
+.code-explanations h2 { margin: 0 0 13px; color: var(--ink); font-size: 15px; font-weight: 600; }
+.code-explanations dl { display: grid; grid-template-columns: 1fr 1fr; gap: 11px 24px; margin: 0; }
+.code-explanations dl > div { min-width: 0; }
+.code-explanations dt { color: var(--ink); font-size: 13px; font-weight: 600; }
+.code-explanations dt code { font-family: Consolas, 'SFMono-Regular', monospace; }
+.code-explanations dd { margin: 4px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.lesson-page-navigation { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border); }
+.lesson-page-selector { max-width: 360px; flex: 1; min-width: 0; }
+.lesson-page-selector label { display: block; margin-bottom: 9px; color: var(--muted); font-size: 13px; }
+.lesson-page-selector select { width: 100%; padding: 10px 30px 10px 10px; border: 1px solid var(--border); border-radius: 3px; background: white; color: var(--ink); font: inherit; font-size: 14px; }
+.lesson-page-buttons { display: flex; gap: 12px; }
+.lesson-page-buttons .button { gap: 12px; }
+.lesson-page-buttons .previous-page { border-color: var(--border); background: white; color: var(--ink); }
+.lesson-page-buttons button:disabled { opacity: .4; }
+@media(max-width: 650px) { .pupil-objectives { grid-template-columns: 1fr; gap: 24px; }.code-explanations dl { grid-template-columns: 1fr; } }
+@media(max-width: 560px) { .lesson-heading h1 { font-size: 26px; }.lesson-page-navigation { align-items: stretch; flex-direction: column; }.lesson-page-selector { max-width: none; }.lesson-page-buttons { justify-content: space-between; } }

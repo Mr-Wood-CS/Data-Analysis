@@ -1,10 +1,19 @@
-.site-shell { max-width: 1180px; min-height: 100vh; margin: 0 auto; padding: 0 54px; }
-.site-header { height: 83px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
-.brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); font-size: 14px; font-weight: 600; letter-spacing: -.2px; }
-.brand small { display: block; margin-top: 4px; color: var(--muted); font-size: 8px; font-weight: 600; letter-spacing: 1.1px; }
-.brand-mark { display: grid; place-items: center; width: 33px; height: 33px; border: 1px solid #dfe5db; background: #f0f3e9; color: var(--green); font-family: Georgia, serif; font-size: 20px; }
-.header-meta { color: var(--muted); font-size: 11px; }.status-dot { display: inline-block; width: 6px; height: 6px; margin-right: 7px; border-radius: 50%; background: #78946c; }.header-divider { margin: 0 9px; color: #b6bdb6; }
-.lesson-view { max-width: 800px; min-height: 70vh; margin: 0 auto; padding: 35px 0 60px; }.back-link { margin: 0 0 27px; padding: 0; border: 0; background: none; color: var(--green); font-size: 12px; }.back-link:hover { text-decoration: underline; }.lesson-topline { display: flex; justify-content: space-between; margin-bottom: 13px; color: #6d7a6c; font-size: 9px; font-weight: 650; letter-spacing: 1.2px; }.lesson-pagination { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }.lesson-pagination button { padding: 9px 12px; border: 1px solid var(--border); border-radius: 3px; background: #fff; color: var(--green); font-size: 11px; }.lesson-pagination button:hover:not(:disabled) { background: #f4f7f2; }.lesson-pagination button:disabled { color: #9ca49b; }
-.site-footer { display: flex; justify-content: space-between; padding: 21px 0 25px; border-top: 1px solid var(--border); color: var(--muted); font-size: 9px; }.site-footer span:first-child { color: var(--green); font-weight: 650; letter-spacing: 1px; }
-@media(max-width: 700px) { .site-shell { padding: 0 22px; }.site-header { height: 65px; }.header-meta { font-size: 9px; }.lesson-pagination { flex-wrap: wrap; }.site-footer { gap: 10px; } }
-@media(max-width: 400px) { .site-shell { padding: 0 16px; }.header-meta { max-width: 132px; text-align: right; } }
+.site-shell { max-width: 1000px; min-height: 100vh; margin: 0 auto; padding: 0 32px; }
+.site-header { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--border); }
+.brand { color: var(--ink); font-size: 18px; font-weight: 650; letter-spacing: -.3px; text-decoration: none; }
+.site-nav { display: flex; align-self: stretch; gap: 28px; }
+.site-nav button { padding: 0; border: 0; border-bottom: 2px solid transparent; background: none; color: var(--muted); font-size: 14px; }
+.site-nav button:hover { color: var(--green); }
+.site-nav button.active { border-bottom-color: var(--green); color: var(--ink); }
+.site-shell > main { padding-top: 54px; }
+.lesson-view { max-width: 800px; min-height: 70vh; margin: 0 auto; padding: 0 0 60px; }
+.back-link { margin: 0 0 27px; padding: 0; border: 0; background: none; color: var(--green); font-size: 12px; }
+.back-link:hover { text-decoration: underline; }
+.lesson-topline { display: flex; justify-content: space-between; margin-bottom: 13px; color: #6d7a6c; font-size: 9px; font-weight: 650; letter-spacing: 1.2px; }
+.lesson-pagination { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; }
+.lesson-pagination button { padding: 9px 12px; border: 1px solid var(--border); border-radius: 3px; background: #fff; color: var(--green); font-size: 11px; }
+.lesson-pagination button:hover:not(:disabled) { background: #f4f7f2; }
+.lesson-pagination button:disabled { color: #9ca49b; }
+.site-footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px 0; margin-top: 40px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+.site-footer span:first-child { color: var(--ink); font-weight: 500; letter-spacing: 0; }
+@media(max-width: 650px) { .site-shell { padding: 0 20px; }.site-header { height: 65px; }.site-nav { gap: 18px; }.site-nav button { font-size: 13px; }.lesson-pagination { flex-wrap: wrap; }.site-footer { font-size: 11px; }.site-footer span { text-align: right; } }

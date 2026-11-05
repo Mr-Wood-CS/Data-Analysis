@@ -1,41 +1,84 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import { lessons } from './components/lessons'
 import LandingPage from './components/LandingPage'
+import LessonsPage from './components/LessonsPage'
+import LessonDetailPage from './components/LessonDetailPage'
 
 function App() {
+  const [view, setView] = useState<'home' | 'lessons' | 'lesson'>('home')
   const [activeLesson, setActiveLesson] = useState<number | null>(null)
+  const [activePage, setActivePage] = useState(0)
   const current = activeLesson === null ? null : lessons[activeLesson]
   const selectedIndex = activeLesson ?? 0
+
+  useEffect(() => {
+    function syncRoute() {
+      const lessonRoute = /^#\/lesson\/([1-9]\d*)\/?$/.exec(window.location.hash)
+      if (lessonRoute) {
+        const index = Number(lessonRoute[1]) - 1
+        if (index >= 0 && index < lessons.length) {
+          setActiveLesson(index)
+          setActivePage(0)
+          setView('lesson')
+          window.scrollTo({ top: 0 })
+          return
+        }
+      }
+      if (window.location.hash === '#/lessons') {
+        setActiveLesson(null)
+        setView('lessons')
+      } else {
+        setActiveLesson(null)
+        setView('home')
+      }
+    }
+    syncRoute()
+    window.addEventListener('hashchange', syncRoute)
+    return () => window.removeEventListener('hashchange', syncRoute)
+  }, [])
+
+  function openLesson(index: number) {
+    setActiveLesson(index)
+    setActivePage(0)
+    setView('lesson')
+    window.scrollTo({ top: 0 })
+    window.location.hash = `/lesson/${index + 1}`
+  }
+
+  function showLessons() {
+    setActiveLesson(null)
+    setView('lessons')
+    window.scrollTo({ top: 0 })
+    window.location.hash = '/lessons'
+  }
+
+  function showHome() {
+    setActiveLesson(null)
+    setView('home')
+    window.scrollTo({ top: 0 })
+    window.location.hash = '/'
+  }
 
   return (
     <div className="site-shell">
       <a className="skip-link" href="#main-content">Skip to lesson content</a>
       <header className="site-header">
-        <a className="brand" href="#home" onClick={() => setActiveLesson(null)} aria-label="Data Detectives home">
-          <span className="brand-mark" aria-hidden="true">D</span>
-          <span>Data Detectives<small>PYTHON · DATA ANALYSIS</small></span>
+        <a className="brand" href="#home" onClick={(event) => { event.preventDefault(); showHome() }} aria-label="Data Analysis home">
+          Data Analysis
         </a>
-        <div className="header-meta"><span className="status-dot" /> Fourth Level <span className="header-divider">/</span> 18 lessons</div>
+        <nav className="site-nav" aria-label="Main navigation">
+          <button className={view === 'home' ? 'active' : ''} aria-current={view === 'home' ? 'page' : undefined} onClick={showHome}>Home</button>
+          <button className={view !== 'home' ? 'active' : ''} aria-current={view !== 'home' ? 'page' : undefined} onClick={showLessons}>Lessons</button>
+        </nav>
       </header>
 
       <main id="main-content">
-        {current ? (
-          <section className="lesson-view" aria-live="polite">
-            <button className="back-link" onClick={() => setActiveLesson(null)}>← All lessons</button>
-            <div className="lesson-topline"><span>LESSON {String(selectedIndex + 1).padStart(2, '0')}</span><span>45 MIN</span></div>
-            <current.Component />
-            <nav className="lesson-pagination" aria-label="Lesson navigation">
-              <button disabled={selectedIndex === 0} onClick={() => setActiveLesson(selectedIndex - 1)}>← Previous</button>
-              <span>{selectedIndex + 1} / {lessons.length}</span>
-              <button disabled={selectedIndex === lessons.length - 1} onClick={() => setActiveLesson(selectedIndex + 1)}>Next lesson →</button>
-            </nav>
-          </section>
-        ) : (
-          <LandingPage lessons={lessons} onStart={() => setActiveLesson(0)} onOpenLesson={setActiveLesson} />
-        )}
+        {view === 'lesson' && current && <LessonDetailPage lesson={current} index={selectedIndex} page={activePage} onPageChange={setActivePage} onBack={showLessons} />}
+        {view === 'lessons' && <LessonsPage onOpenLesson={openLesson} />}
+        {view === 'home' && <LandingPage onLessons={showLessons} />}
       </main>
-      <footer className="site-footer"><span>DATA DETECTIVES</span><span>Learn by asking better questions.</span></footer>
+      <footer className="site-footer"><span>Data Analysis</span><span>Fourth Level Computing Science</span></footer>
     </div>
   )
 }

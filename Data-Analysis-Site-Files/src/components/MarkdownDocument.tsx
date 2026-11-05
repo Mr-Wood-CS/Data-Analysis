@@ -16,7 +16,9 @@ function inline(text: string): ReactNode[] {
       const link = value.match(/^\[([^\]]+)\]\(([^)]+)\)$/)!
       const href = link[2].startsWith('../resources/')
         ? `${import.meta.env.BASE_URL}resources/${link[2].slice('../resources/'.length)}`
-        : link[2]
+        : link[2].startsWith('../reference/')
+          ? `${import.meta.env.BASE_URL}resources/reference/${link[2].slice('../reference/'.length)}`
+          : link[2]
       parts.push(<a key={index} href={href}>{link[1]}</a>)
     }
     last = index + value.length

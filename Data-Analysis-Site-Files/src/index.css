@@ -3,6 +3,9 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; min-width: 320px; }
 button, input { font: inherit; }
+.button { display: inline-flex; align-items: center; justify-content: center; padding: 11px 17px; border: 1px solid transparent; border-radius: 3px; font-size: 14px; }
+.primary { background: var(--green); color: #fff; }
+.primary:hover { background: #284e38; }
 button { cursor: pointer; }
 button:focus-visible, a:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
 button:disabled { cursor: default; opacity: .7; }
