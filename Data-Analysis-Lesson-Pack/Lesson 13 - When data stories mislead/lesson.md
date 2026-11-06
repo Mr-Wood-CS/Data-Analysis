@@ -1,4 +1,4 @@
-﻿# Lesson 13: When data stories mislead
+# Lesson 13: When data stories mislead
 
 **Time:** 45 minutes · **Skills:** Mean, median, outliers and axes
 
@@ -10,9 +10,9 @@ Evaluate how presentation choices change an interpretation.
 
 ## Get ready
 
-[Starter Python](resources/starters/lesson13.py) · [CSV](resources/datasets/sports.csv) · [Data dictionary](reference/data-dictionary.md)
+[Starter Python](resources/starter-code/lesson13.py) · [CSV](resources/datasets/sports.csv) · [Data dictionary](reference/data-dictionary.md)
 
-Open the starter in your extracted pack. Save your own copy in the same starters folder with your initials in the filename. Run it using your editor, or `python resources/starters/lesson13.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
+Open the starter in your extracted pack. Save your own copy in the same starter-code folder with your initials in the filename. Run it using your editor, or `python resources/starter-code/lesson13.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
 
 ## Lesson route
 
@@ -31,7 +31,7 @@ Outliers can be genuine, errors or unusual observations: inspect context before 
 
 ## Worked model
 
-The starter has already loaded `sports.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starters also import `plt`.
+The starter has already loaded `sports.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starter scripts also import `plt`.
 
 ```python
 example = pd.Series([10, 11, 12, 13, 100])

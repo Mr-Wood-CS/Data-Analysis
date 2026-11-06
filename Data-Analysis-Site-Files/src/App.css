@@ -2,8 +2,8 @@
 .site-header { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--border); }
 .brand { color: var(--ink); font-size: 18px; font-weight: 650; letter-spacing: -.3px; text-decoration: none; }
 .site-nav { display: flex; align-self: stretch; gap: 28px; }
-.site-nav button { padding: 0; border: 0; border-bottom: 2px solid transparent; background: none; color: var(--muted); font-size: 14px; }
-.site-nav button:hover { color: var(--green); }
+.site-nav button, .site-nav a { padding: 0; border: 0; border-bottom: 2px solid transparent; background: none; color: var(--muted); font-size: 14px; }
+.site-nav button:hover, .site-nav a:hover { color: var(--green); }
 .site-nav button.active { border-bottom-color: var(--green); color: var(--ink); }
 .site-shell > main { padding-top: 54px; }
 .lesson-view { max-width: 800px; min-height: 70vh; margin: 0 auto; padding: 0 0 60px; }
@@ -16,4 +16,7 @@
 .lesson-pagination button:disabled { color: #9ca49b; }
 .site-footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px 0; margin-top: 40px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
 .site-footer span:first-child { color: var(--ink); font-weight: 500; letter-spacing: 0; }
-@media(max-width: 650px) { .site-shell { padding: 0 20px; }.site-header { height: 65px; }.site-nav { gap: 18px; }.site-nav button { font-size: 13px; }.lesson-pagination { flex-wrap: wrap; }.site-footer { font-size: 11px; }.site-footer span { text-align: right; } }
+@media(max-width: 650px) { .site-shell { padding: 0 20px; }.site-header { height: 65px; }.site-nav { gap: 18px; }.site-nav button, .site-nav a { font-size: 13px; }.lesson-pagination { flex-wrap: wrap; }.site-footer { font-size: 11px; }.site-footer span { text-align: right; } }
+
+.site-nav a { display: flex; align-items: center; gap: 5px; text-decoration: none; }
+@media(max-width: 420px) { .site-header { gap: 12px; flex-wrap: wrap; height: auto; padding-top: 16px; }.site-nav { min-height: 44px; gap: 18px; } }

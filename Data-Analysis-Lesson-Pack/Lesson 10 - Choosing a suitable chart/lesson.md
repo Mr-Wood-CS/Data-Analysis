@@ -1,4 +1,4 @@
-﻿# Lesson 10: Choosing a suitable chart
+# Lesson 10: Choosing a suitable chart
 
 **Time:** 45 minutes · **Skills:** Line charts, ordered data and chart selection
 
@@ -10,9 +10,9 @@ Choose a chart that matches the structure and question.
 
 ## Get ready
 
-[Starter Python](resources/starters/lesson10.py) · [CSV](resources/datasets/club_visits.csv) · [Data dictionary](reference/data-dictionary.md)
+[Starter Python](resources/starter-code/lesson10.py) · [CSV](resources/datasets/club_visits.csv) · [Data dictionary](reference/data-dictionary.md)
 
-Open the starter in your extracted pack. Save your own copy in the same starters folder with your initials in the filename. Run it using your editor, or `python resources/starters/lesson10.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
+Open the starter in your extracted pack. Save your own copy in the same starter-code folder with your initials in the filename. Run it using your editor, or `python resources/starter-code/lesson10.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
 
 ## Lesson route
 
@@ -31,7 +31,7 @@ A line suggests an ordered progression. Week is an ordered measurement in this d
 
 ## Worked model
 
-The starter has already loaded `club_visits.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starters also import `plt`.
+The starter has already loaded `club_visits.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starter scripts also import `plt`.
 
 ```python
 ordered = df.sort_values("week")

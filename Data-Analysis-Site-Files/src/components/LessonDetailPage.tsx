@@ -51,7 +51,7 @@ function splitIntoPages(markdown: string): LessonPage[] {
 
   const saveSection = () => {
     if (!sectionTitle) return
-    if (sectionTitle === 'Lesson route' || sectionTitle === 'Support') return
+    if (['Lesson route', 'Support', 'Get ready', 'Your investigation', 'Stretch', 'Stop and check', 'Save your evidence', 'Exit ticket'].includes(sectionTitle)) return
 
     let markdown = sectionContent.join('\n').trim()
     if (sectionTitle === 'Learning intention') {
@@ -59,10 +59,6 @@ function splitIntoPages(markdown: string): LessonPage[] {
       const criteria = sectionContent.map(line => line.trim().match(/^\*\*Success criteria:\*\*\s*(.+)$/)?.[1]).find(Boolean) ?? ''
       pages.push({ title: 'Learning intention & success criteria', markdown: '', objectives: { intention, criteria } })
       return
-    }
-    if (sectionTitle === 'Get ready') {
-      const resourceLinks = sectionContent.find(line => line.trim().startsWith('['))?.trim() ?? ''
-      markdown = `${resourceLinks}\n\nDownload and extract the program files, keeping the resources folder structure intact. Open the starter in Python and run it. Results appear in the terminal; files created by a script are saved in the resources/generated folder. Keep the original CSV unchanged.`
     }
     if (sectionTitle === 'Key idea') {
       markdown = markdown
@@ -79,7 +75,7 @@ function splitIntoPages(markdown: string): LessonPage[] {
     if (sectionTitle === 'Worked model') {
       markdown = markdown
         .replace('The starter has already loaded', 'The starter loads')
-        .replace('as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starters also import `plt`.', 'as `df` and imports Pandas as `pd`. It defines `OUT` for saved results; chart lessons also import `plt`.')
+        .replace('as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starter scripts also import `plt`.', 'as `df` and imports Pandas as `pd`. It defines `OUT` for saved results; chart lessons also import `plt`.')
         .replace('Before running: predict one output. After running: explain one line to your partner. Python field names and game labels must match exactly.', 'Before running the code, predict one output. Then run it and compare the result with your prediction. Field names and labels must match exactly.')
     }
     if (sectionTitle === 'Stop and check') markdown = markdown.replace('Show with a ', 'Use a ')

@@ -70,6 +70,7 @@ function App() {
         <nav className="site-nav" aria-label="Main navigation">
           <button className={view === 'home' ? 'active' : ''} aria-current={view === 'home' ? 'page' : undefined} onClick={showHome}>Home</button>
           <button className={view !== 'home' ? 'active' : ''} aria-current={view !== 'home' ? 'page' : undefined} onClick={showLessons}>Lessons</button>
+          <a href={`${import.meta.env.BASE_URL}downloads/data-analysis-unit.zip`} download="data-analysis-unit.zip" aria-label="Download Python files and datasets (ZIP)">Python files &amp; datasets <span aria-hidden="true">↓</span></a>
         </nav>
       </header>
 

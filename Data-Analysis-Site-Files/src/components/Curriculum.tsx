@@ -2,46 +2,43 @@ import './Curriculum.css'
 
 const outcomes = [
   {
-    code: 'TCH 4-13a',
-    focus: 'Compare real-world solution processes and justify a choice.',
-    opportunity: 'Lessons 8, 13 and 16–18: compare cleaning or analysis approaches, then explain and defend a method.',
-    scope: 'Fourth Level extension evidence depends on explanation and comparison, not only completing the core activity.',
-  },
-  {
-    code: 'TCH 4-13b',
-    focus: 'Informally compare algorithm correctness and efficiency.',
-    opportunity: 'Lesson 6 stretch: compare a maximum scan with a paper sorting process, test ties and count comparisons.',
-    scope: 'This is an optional focused opportunity. Using Pandas sorting does not, by itself, demonstrate algorithm analysis.',
+    code: 'TCH 4-15a',
+    description: 'Select development tools, create and improve solutions that process and present information, and justify design decisions.',
   },
   {
     code: 'TCH 4-14a',
-    focus: 'Use textual language constructs and data structures.',
-    opportunity: 'Lessons 4, 8, 12 and 17: explain and adapt Python expressions, a loop and tabular structures.',
-    scope: 'This unit provides a selected programming context; it does not establish broad programming coverage on its own.',
+    description: 'I understand constructs and data structures in a textual programming language.',
   },
+]
+
+const benchmarks = [
+  'Identify the key requirements of a problem before developing a solution.',
+  'Use Python variables, calculations, selection and repetition to process data.',
+  'Explain how data structures represent information in a textual programming language.',
+  'Apply AND, OR and NOT when combining conditions.',
+  'Identify syntax and logic errors, and debug the code.',
+  'Document testing and evaluate whether the solution meets its requirements.',
 ]
 
 export default function Curriculum() {
   return (
     <section className="curriculum-section" aria-labelledby="curriculum-heading">
-      <div className="curriculum-heading">
-        <p className="section-eyebrow">CURRICULUM LINKS</p>
-        <h2 id="curriculum-heading">Fourth Level experiences<br />and outcomes</h2>
-        <p>Focused opportunities for learners to explain, compare and justify their approach to data analysis.</p>
-      </div>
+      <h2 id="curriculum-heading">Fourth Level experiences and outcomes</h2>
+      <p className="curriculum-source">Plain-language summaries of the selected Fourth Level outcomes and benchmarks. <a href="https://education.gov.scot/media/irimoozl/technologiesbenchmarkspdf.pdf" target="_blank" rel="noreferrer">Read the official wording (PDF, page 24)</a>.</p>
       <div className="outcome-list">
         {outcomes.map((outcome) => (
           <article className="outcome-item" key={outcome.code}>
-            <span className="outcome-code">{outcome.code}</span>
-            <div className="outcome-copy">
-              <h3>{outcome.focus}</h3>
-              <p>{outcome.opportunity}</p>
-              <small>{outcome.scope}</small>
-            </div>
+            <h3 className="outcome-code">{outcome.code}</h3>
+            <p>{outcome.description}</p>
           </article>
         ))}
       </div>
-      <p className="curriculum-note">Planning interpretations from the curriculum mapping file. Match each outcome with a range of evidence; completing a lesson alone does not confirm achievement.</p>
+      <div className="curriculum-benchmarks">
+        <h2>Benchmarks supported by this unit</h2>
+        <ul>
+          {benchmarks.map((benchmark) => <li key={benchmark}>{benchmark}</li>)}
+        </ul>
+      </div>
     </section>
   )
 }

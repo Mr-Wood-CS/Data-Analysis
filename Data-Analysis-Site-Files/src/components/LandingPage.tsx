@@ -6,7 +6,6 @@ type LandingPageProps = {
 }
 
 export default function LandingPage({ onLessons }: LandingPageProps) {
-  const downloadHref = `${import.meta.env.BASE_URL}downloads/data-analysis-unit.zip`
 
   return (
     <>
@@ -19,7 +18,6 @@ export default function LandingPage({ onLessons }: LandingPageProps) {
       </header>
 
       <Curriculum />
-      <p className="lesson-download-row">Need the program files? <a href={downloadHref} download>Download the Python and CSV files <span aria-hidden="true">↓</span></a></p>
     </>
   )
 }

@@ -1,4 +1,4 @@
-﻿# Lesson 1: What can data tell us?
+# Lesson 1: What can data tell us?
 
 **Time:** 45 minutes · **Skills:** CSV, records, fields, read_csv and head
 
@@ -10,9 +10,9 @@ Describe what one row represents and load a CSV into a DataFrame.
 
 ## Get ready
 
-[Starter Python](resources/starters/lesson01.py) · [CSV](resources/datasets/gaming.csv) · [Data dictionary](reference/data-dictionary.md)
+[Starter Python](resources/starter-code/lesson01.py) · [CSV](resources/datasets/gaming.csv) · [Data dictionary](reference/data-dictionary.md)
 
-Open the starter in your extracted pack. Save your own copy in the same starters folder with your initials in the filename. Run it using your editor, or `python resources/starters/lesson01.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
+Open the starter in your extracted pack. Save your own copy in the same starter-code folder with your initials in the filename. Run it using your editor, or `python resources/starter-code/lesson01.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
 
 ## Lesson route
 
@@ -31,7 +31,7 @@ A CSV stores a table as text. A record is one row; a field is one column. Here o
 
 ## Worked model
 
-The starter has already loaded `gaming.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starters also import `plt`.
+The starter has already loaded `gaming.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starter scripts also import `plt`.
 
 ```python
 print(df.head())

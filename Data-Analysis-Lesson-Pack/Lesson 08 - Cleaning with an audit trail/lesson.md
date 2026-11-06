@@ -1,4 +1,4 @@
-﻿# Lesson 8: Cleaning with an audit trail
+# Lesson 8: Cleaning with an audit trail
 
 **Time:** 45 minutes · **Skills:** String normalisation, conversion, missing values and export
 
@@ -10,9 +10,9 @@ Apply and justify a repeatable cleaning policy.
 
 ## Get ready
 
-[Starter Python](resources/starters/lesson08.py) · [CSV](resources/datasets/gaming_dirty.csv) · [Data dictionary](reference/data-dictionary.md)
+[Starter Python](resources/starter-code/lesson08.py) · [CSV](resources/datasets/gaming_dirty.csv) · [Data dictionary](reference/data-dictionary.md)
 
-Open the starter in your extracted pack. Save your own copy in the same starters folder with your initials in the filename. Run it using your editor, or `python resources/starters/lesson08.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
+Open the starter in your extracted pack. Save your own copy in the same starter-code folder with your initials in the filename. Run it using your editor, or `python resources/starter-code/lesson08.py` from the pack folder. Printed results appear in the terminal; saved files go to `resources/generated/`. See [setup](setup.md) if Python cannot find Pandas. Do not edit the raw CSV.
 
 ## Lesson route
 
@@ -31,7 +31,7 @@ Our teaching policy removes exact duplicate rows, trims/title-cases game labels,
 
 ## Worked model
 
-The starter has already loaded `gaming_dirty.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starters also import `plt`.
+The starter has already loaded `gaming_dirty.csv` as `df`, imported Pandas as `pd`, and defined the output folder `OUT`. Chart starter scripts also import `plt`.
 
 ```python
 clean = df.drop_duplicates().copy()
