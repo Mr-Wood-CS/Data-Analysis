@@ -1,3 +1,4 @@
+import pupilTeaching from './pupilTeaching.json'
 import lessonMarkdown01 from '../../../MD-Files/01.md?raw'
 import lessonMarkdown02 from '../../../MD-Files/02.md?raw'
 import lessonMarkdown03 from '../../../MD-Files/03.md?raw'
@@ -17,7 +18,7 @@ import lessonMarkdown16 from '../../../MD-Files/16.md?raw'
 import lessonMarkdown17 from '../../../MD-Files/17.md?raw'
 import lessonMarkdown18 from '../../../MD-Files/18.md?raw'
 
-﻿
+
 const lessonMarkdown = [
   lessonMarkdown01,
   lessonMarkdown02,
@@ -37,7 +38,13 @@ const lessonMarkdown = [
   lessonMarkdown16,
   lessonMarkdown17,
   lessonMarkdown18,
-]
+].map((markdown, index) => {
+  const { concept, worked } = pupilTeaching[index]
+  const resources = markdown.split(/^## Get ready\s*$/m)[1]?.trim().split('\n')[0] ?? ''
+  return markdown
+    .replace(/^## Key idea\s*\n[\s\S]*?(?=^## )/m, () => `## Key idea\n\n${concept}\n\n`)
+    .replace(/^## Worked model\s*\n[\s\S]*?(?=^## )/m, () => `## Worked model\n\n${resources}\n\n${worked}\n\n`)
+})
 
 export const lessons = [
   { title: 'Lesson 1: What can data tell us?', summary: 'CSV, records, fields, read_csv and head', markdown: lessonMarkdown[0] },

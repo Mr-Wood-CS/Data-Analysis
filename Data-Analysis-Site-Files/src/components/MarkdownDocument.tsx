@@ -38,6 +38,13 @@ export default function MarkdownDocument({ markdown }: { markdown: string }) {
   while (index < lines.length) {
     const line = lines[index].trim()
     if (!line) { index++; continue }
+    const diagram = line.match(/^!\[([^\]]+)\]\(\.\.\/resources\/(diagrams\/lesson\d{2}\.png)\)$/)
+    if (diagram) {
+      blocks.push(<figure className="lesson-diagram" key={`diagram-${index}`}>
+        <img src={`${import.meta.env.BASE_URL}resources/${diagram[2]}`} alt={diagram[1]} />
+      </figure>)
+      index++; continue
+    }
     if (line.startsWith('```')) {
       const language = line.slice(3).trim()
       const code: string[] = []

@@ -16,3 +16,6 @@
 .markdown-document table { width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.65; text-align: left; }
 .markdown-document th { background: #f3f5f0; color: #37483a; font-weight: 600; }.markdown-document th, .markdown-document td { min-width: 110px; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }.markdown-document tr:last-child td { border-bottom: 0; }.markdown-document td:first-child { color: #405744; font-weight: 500; }
 @media(max-width: 560px) { .markdown-document { font-size: 13px; }.markdown-document th, .markdown-document td { padding: 8px 10px; } }
+
+.markdown-document .lesson-diagram { margin: 16px 0 24px; }
+.markdown-document .lesson-diagram img { display: block; width: 100%; height: auto; border-radius: 6px; }
