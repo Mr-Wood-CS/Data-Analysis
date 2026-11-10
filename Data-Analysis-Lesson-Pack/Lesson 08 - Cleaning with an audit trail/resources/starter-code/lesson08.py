@@ -17,8 +17,3 @@ print(clean.isna().sum())
 print("Rows", len(clean))
 print("Known-score mean", clean["score"].mean())
 print("Mean after median fill", clean["score"].fillna(clean["score"].median()).mean())
-
-# YOUR TASKS: add your analysis below. The preview above is deliberately runnable.
-# 1. Implement the stated policy and save a cleaning log with before/after counts.
-# 2. Compare the mean using known scores with the mean after median filling. Explain why neither restores the missing observations.
-# 3. Try dropna(subset=["score"]) on a copy. Report how many rows remain and which questions that copy could still answer.

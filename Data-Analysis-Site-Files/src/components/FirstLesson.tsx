@@ -38,7 +38,7 @@ function TablePicture({ focus = 'none', full = false }: { focus?: 'none' | 'reco
 }
 
 function Check({ question, answer }: { question: string; answer: string }) {
-  return <aside className="first-check"><h2>Check your understanding</h2><p>{question}</p><details><summary>Check your answer</summary><p>{answer}</p></details></aside>
+  return <aside className="first-check"><h2>Check your understanding</h2><p>{question}</p><details><summary>Answer</summary><p>{answer}</p></details></aside>
 }
 
 function Word({ term, children }: { term: string; children: React.ReactNode }) {

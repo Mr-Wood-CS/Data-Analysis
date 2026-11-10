@@ -14,8 +14,3 @@ scores = pd.to_numeric(df["score"], errors="coerce")
 print("Unusable scores", scores.isna().sum())
 print(df[df["minutes"] < 0])
 print(df["game"].unique())
-
-# YOUR TASKS: add your analysis below. The preview above is deliberately runnable.
-# 1. Create an audit table with problem, affected identifier, evidence and proposed action.
-# 2. Find repeated rows and missing values. Do not count a duplicated identifier as a new player.
-# 3. Find the text score, negative duration and inconsistent game labels. Explain which problems isna() alone misses.

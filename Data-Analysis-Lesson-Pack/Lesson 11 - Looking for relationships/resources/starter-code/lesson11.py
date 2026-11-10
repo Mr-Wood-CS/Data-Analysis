@@ -16,8 +16,3 @@ plt.tight_layout()
 plt.savefig(OUT / "lesson11_scatter.png")
 plt.close()
 print(df[["practice_minutes", "score"]].head())
-
-# YOUR TASKS: add your analysis below. The preview above is deliberately runnable.
-# 1. Plot practice_minutes versus score with units.
-# 2. Describe direction, spread and unusual points. Use appears rather than proves.
-# 3. Suggest two unrecorded factors that might affect a real score. Explain why increasing practice cannot be guaranteed to increase score from this table.

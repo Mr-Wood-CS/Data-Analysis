@@ -19,8 +19,3 @@ plt.tight_layout()
 plt.savefig(OUT / "lesson10_visits.png")
 plt.close()
 print(ordered)
-
-# YOUR TASKS: add your analysis below. The preview above is deliberately runnable.
-# 1. Choose chart types for game counts, weekly visits and practice versus score. Justify each choice.
-# 2. Plot visits in week order and describe the overall pattern and one decrease.
-# 3. Explain why drawing a line between game categories could mislead. Discuss whether a pie would improve the game-count comparison.

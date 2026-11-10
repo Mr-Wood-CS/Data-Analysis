@@ -18,8 +18,3 @@ plt.tight_layout()
 plt.savefig(OUT / "lesson09_games.png")
 plt.close()
 print(counts)
-
-# YOUR TASKS: add your analysis below. The preview above is deliberately runnable.
-# 1. Predict bar heights from a table of counts, then create the chart.
-# 2. Change the title and labels so a reader knows the sample and unit.
-# 3. Write an accessible two-sentence description giving all three values and the main comparison.

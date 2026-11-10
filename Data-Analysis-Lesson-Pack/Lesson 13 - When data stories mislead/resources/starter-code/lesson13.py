@@ -24,8 +24,3 @@ fig.tight_layout()
 fig.savefig(OUT / "lesson13_axes.png")
 plt.close(fig)
 print(means)
-
-# YOUR TASKS: add your analysis below. The preview above is deliberately runnable.
-# 1. Calculate the mean and median of the five-number example. Decide which better describes the middle observation.
-# 2. Compare both charts and state what stays the same and what looks different.
-# 3. Write a responsible caption for the regional means. Explain why deleting 100 without investigating would be poor practice.
