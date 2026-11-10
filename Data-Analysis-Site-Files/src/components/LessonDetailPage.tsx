@@ -2,6 +2,7 @@ import { useMemo, useRef } from 'react'
 import type { LessonSummary } from './lessons'
 import MarkdownDocument from './MarkdownDocument'
 import './LessonDetailPage.css'
+import FirstLesson from './FirstLesson'
 
 type LessonPage = {
   title: string
@@ -112,6 +113,8 @@ export default function LessonDetailPage({ lesson, index, page, onPageChange, on
     window.scrollTo({ top: 0 })
     window.setTimeout(() => heading.current?.focus(), 0)
   }
+
+  if (index === 0) return <FirstLesson page={page} onPageChange={onPageChange} onBack={onBack} />
 
   return <section className="lesson-detail-page">
     <button className="back-link" onClick={onBack}>← All lessons</button>
