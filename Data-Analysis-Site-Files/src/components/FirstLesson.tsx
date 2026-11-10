@@ -38,11 +38,11 @@ function TablePicture({ focus = 'none', full = false }: { focus?: 'none' | 'reco
 }
 
 function Check({ question, answer }: { question: string; answer: string }) {
-  return <aside className="first-check"><h2>Check your understanding</h2><p>{question}</p><details><summary>Answer</summary><p>{answer}</p></details></aside>
+  return <aside className="first-check"><h2><span aria-hidden="true">💭</span> Check your understanding</h2><p>{question}</p><details><summary>Answer</summary><p>{answer}</p></details></aside>
 }
 
 function Word({ term, children }: { term: string; children: React.ReactNode }) {
-  return <aside className="first-word"><h2>Key word: {term}</h2><p>{children}</p></aside>
+  return <aside className="first-word"><h2><span aria-hidden="true">🔑</span> Key word: {term}</h2><p>{children}</p></aside>
 }
 
 function Code({ code, label }: { code: string; label: string }) {
@@ -107,13 +107,13 @@ export default function FirstLesson({ page, onPageChange, onBack }: { page: numb
       {current === 6 && <>
         <p className="first-lead">Before analysing a table, look at a few records to check what has loaded.</p>
         <p>Open <code>starter-code/lesson01.py</code> from the extracted lesson pack. Save a copy beside it with your initials in the filename. Change <code>print(df.head())</code> to the line below, then run your copy.</p>
-        <div className="first-code-layout"><section><h2>Example code</h2><Code label="Change this preview line" code="print(df.head(3))" /></section><section><h2>Reading the code</h2><dl className="first-code-notes"><div><dt><code>df.head(3)</code></dt><dd>Asks our table for its first three records. The dot connects the table’s name to the <code>head</code> operation.</dd></div><div><dt><code>print(…)</code></dt><dd>Displays the result in the output area, sometimes called the terminal or shell.</dd></div></dl></section></div>
+        <div className="first-code-layout"><section><h2><span aria-hidden="true">💻</span> Example code</h2><Code label="Change this preview line" code="print(df.head(3))" /></section><section><h2>Reading the code</h2><dl className="first-code-notes"><div><dt><code>df.head(3)</code></dt><dd>Asks our table for its first three records. The dot connects the table’s name to the <code>head</code> operation.</dd></div><div><dt><code>print(…)</code></dt><dd>Displays the result in the output area, sometimes called the terminal or shell.</dd></div></dl></section></div>
         <h2>What appears on screen?</h2><p>The output contains these records. Spacing may vary in your editor.</p><TablePicture full />
         <Check question="If you change head(3) to head(2), what should happen?" answer="The preview should show P01 and P02. The full table stays the same size: head() only asks for a preview." />
       </>}
       {current === 7 && <>
         <p className="first-lead">A preview shows only part of a table. To find its full size, ask for its <code>shape</code>.</p>
-        <div className="first-code-layout"><section><h2>Example code</h2><Code label="Already in the starter" code="print(df.shape)" /><p>There are no brackets after <code>shape</code>.</p></section><section><h2>Reading the result</h2><div className="first-shape"><code>({records.length}, {header.length})</code><div><span><strong>{records.length}</strong> rows / records</span><span><strong>{header.length}</strong> columns / fields</span></div></div></section></div>
+        <div className="first-code-layout"><section><h2><span aria-hidden="true">💻</span> Example code</h2><Code label="Already in the starter" code="print(df.shape)" /><p>There are no brackets after <code>shape</code>.</p></section><section><h2>Reading the result</h2><div className="first-shape"><code>({records.length}, {header.length})</code><div><span><strong>{records.length}</strong> rows / records</span><span><strong>{header.length}</strong> columns / fields</span></div></div></section></div>
         <p>Read the pair in order: <strong>rows first, columns second</strong>. The header is not counted as a record. Pandas’ row labels are not counted as a field.</p>
         <Check question="After displaying head(2), will shape say there are only two records?" answer={`No. There are still ${records.length} records and ${header.length} fields. The preview did not remove any rows from df.`} />
       </>}
@@ -122,6 +122,7 @@ export default function FirstLesson({ page, onPageChange, onBack }: { page: numb
         <dl className="first-recap"><div><dt>Record</dt><dd>Read across one row: one player’s summary.</dd></div><div><dt>Field</dt><dd>Read down one column: one kind of information.</dd></div><div><dt>Identifier</dt><dd>Use <code>player_id</code> to tell players apart.</dd></div><div><dt><code>df.head(3)</code></dt><dd>Preview the first three records.</dd></div><div><dt><code>df.shape</code></dt><dd>Find the full size: rows, then columns.</dd></div></dl>
         <h2>Use the data to ask a question</h2><p>We could ask which game each player plays: the <code>player_id</code> and <code>game</code> fields tell us. We cannot use this table to find players’ favourite school subjects: that information is missing.</p>
         <Check question="Can these gaming scores prove that gaming improves schoolwork?" answer="No. There is no schoolwork data here. Even if two things changed together, that alone would not prove that one caused the other." />
+        <section className="first-finish"><h2><span aria-hidden="true">✏️</span> Now complete your Lesson 1 tasks</h2><p>Use these pages to help you as you work.</p></section>
       </>}
     </div>
     <nav className="first-navigation" aria-label="Lesson pages"><div><label htmlFor="first-page-select">Go to a page</label><select id="first-page-select" value={current} onChange={event => changePage(Number(event.target.value))}>{titles.map((title, index) => <option key={title} value={index}>{index + 1}. {title}</option>)}</select></div><div className="first-nav-buttons"><button className="button first-previous" disabled={current === 0} onClick={() => changePage(current - 1)}>Previous</button>{current === titles.length - 1 ? <button className="button primary" onClick={onBack}>Return to lessons</button> : <button className="button primary" onClick={() => changePage(current + 1)}>Next <span aria-hidden="true">→</span></button>}</div></nav>
